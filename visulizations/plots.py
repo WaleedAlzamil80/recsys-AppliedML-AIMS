@@ -43,11 +43,13 @@ def plot_loglog_degrees(
         (axes[1], movie_degrees, "Movie degree distribution"),
     ]:
         unique_values, counts = np.unique(values, return_counts=True)
-
-        ax.loglog(unique_values, counts)
+        # scatter plot
+        log_unique_values = np.log10(unique_values)
+        log_counts = np.log10(counts)
+        ax.scatter(log_unique_values, log_counts)
         ax.set_title(title)
-        ax.set_xlabel("Degree k")
-        ax.set_ylabel("Count P(k)")
+        ax.set_xlabel("Log10 Degree k")
+        ax.set_ylabel("Log10 Count P(k)")
 
     _save_plot(fig, "degree_distribution.png", output_dir=output_dir)
 
