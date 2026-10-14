@@ -38,21 +38,22 @@ training negative log likelihood decreases over iterations. Training RMSE
 converges to **0.7747** and test RMSE to **0.8718**; test error decreases and
 then levels off near the training error.
 
-![Training negative log likelihood](output/practice_02/ALS_Regularized_Negative_Log_Likelihood_objective_1.png)
+![Training negative log likelihood](output/practice_02/plots/ALS_Regularized_Negative_Log_Likelihood_objective_1.png)
 
-![Test negative log likelihood](output/practice_02/ALS_Regularized_Negative_Log_Likelihood_(Test)_objective_1.png)
+![Test negative log likelihood](output/practice_02/plots/ALS_Regularized_Negative_Log_Likelihood_(Test)_objective_1.png)
 
-![Training and test RMSE](output/practice_02/ALS_Root_Mean_Squared_Error_metrics_0.png)
+![Training and test RMSE](output/practice_02/plots/ALS_Root_Mean_Squared_Error_metrics_0.png)
 
 ## Practical 3
 
 The ALS model adds user and movie latent vectors, with regularization on both
-biases and factors. In this run, training loss decreases and training RMSE
-converges to **0.4232**. Test RMSE rises to **1.2879**, so it does not follow
-training performance.
+biases and factors. Increasing factor regularization from `tau=0.1` to `tau=0.9`
+with `lambda=0.09` reduces the 30-epoch test RMSE from **1.2826** to **0.8549**
+(training RMSE **0.6316**). The comparison used the same split and random seed
+for every value.
 
-![Training negative log likelihood](output/practice_03/ALS_Regularized_Negative_Log_Likelihood_objective_0.png)
+![Training negative log likelihood](output/practice_03/plots/ALS_Regularized_Negative_Log_Likelihood_objective_0.png)
 
-![Test negative log likelihood](output/practice_03/ALS_Regularized_Negative_Log_Likelihood_(Test)_objective_0.png)
+![Test negative log likelihood](output/practice_03/plots/ALS_Regularized_Negative_Log_Likelihood_(Test)_objective_0.png)
 
-![Training and test RMSE](output/practice_03/ALS_Root_Mean_Squared_Error_metrics_0.png)
+![Training and test RMSE](output/practice_03/plots/ALS_Root_Mean_Squared_Error_metrics_0.png)
