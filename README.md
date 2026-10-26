@@ -10,9 +10,14 @@ Run the scripts from the project root with the included environment, for example
 ./.venv/bin/python practice_01.py
 ./.venv/bin/python practice_02.py
 ./.venv/bin/python practice_03.py
+./.venv/bin/python practice_04.py --threads 4
 ```
 
-The scripts use `datasets/ml-latest-small` and save plots under `output/`.
+Practicals 1–3 use `datasets/ml-latest-small`. Practical 4 uses the larger
+`datasets/ml-32m` ratings file and saves plots and arrays under `output/`.
+Practical 4 uses Numba threads, defaults to at most eight, and accepts a thread
+count through `--threads`. The number of epochs and data directory are
+configurable with `--epochs` and `--data-dir`.
 
 ## Practical 1
 
@@ -57,3 +62,34 @@ for every value.
 ![Test negative log likelihood](output/practice_03/plots/ALS_Regularized_Negative_Log_Likelihood_(Test)_objective_0.png)
 
 ![Training and test RMSE](output/practice_03/plots/ALS_Root_Mean_Squared_Error_metrics_0.png)
+
+## Practical 4
+
+Practical 4 fits the latent-factor ALS model to MovieLens 32M. Ratings are
+stored in NumPy compressed arrays (`indptr`, `indices`, and `data`), ordered by
+user for user updates and by movie for item updates. Numba compiles the update
+loops and parallelizes users and movies across threads. User updates finish
+before movie updates begin, with a synchronization point between phases. This
+Practice 4 data path does not use SciPy.
+
+For a compressed rating matrix with `R` rows and `K` stored ratings, `indptr`
+has shape `(R + 1,)` and marks each row's span: row `r` uses positions
+`indptr[r]:indptr[r + 1]` in both `indices` and `data`. Both arrays have shape
+`(K,)`: `indices` contains column indices (`int32`) and `data` contains rating
+values (`float64`). The matrix `shape` records its full `(rows, columns)`
+dimensions, including rows with no ratings. User and item index `0..n-1` map
+back to original IDs through `user_ids` and `item_ids`.
+
+The 30-epoch example reached training RMSE **0.7133** and test RMSE **0.7777**.
+The training objective decreased throughout. The test objective is tracked
+separately and is not guaranteed to decrease every epoch. Numba compiles its
+kernels on first use, so the initial run includes compilation overhead.
+
+Run with `./.venv/bin/python practice_04.py --threads 8`. Use `--epochs` to
+change the number of epochs.
+
+![Training negative log likelihood](output/practice_04/plots/ALS_Regularized_Negative_Log_Likelihood_objective_0.png)
+
+![Test negative log likelihood](output/practice_04/plots/ALS_Regularized_Negative_Log_Likelihood_(Test)_objective_0.png)
+
+![Training and test RMSE](output/practice_04/plots/ALS_Root_Mean_Squared_Error_metrics_0.png)
