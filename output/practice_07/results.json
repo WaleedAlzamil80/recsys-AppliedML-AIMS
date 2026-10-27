@@ -1,0 +1,79 @@
+{
+  "dataset": "ml-latest-small",
+  "service_model_test_rmse": 0.8691634486479963,
+  "n_recs": 10,
+  "sessions": 5,
+  "n_users": 610,
+  "n_users_a": 305,
+  "n_users_b": 305,
+  "n_logged_interactions": 30500,
+  "click_model": {
+    "slope": 2.0,
+    "centre": 4.0
+  },
+  "ab_test": {
+    "n_control": 305.0,
+    "n_treatment": 305.0,
+    "ctr_control": 0.28504918032786886,
+    "ctr_treatment": 0.20229508196721313,
+    "difference": -0.08275409836065573,
+    "std_error": 0.007392760567649367,
+    "ci95_low": -0.09727268089286038,
+    "ci95_high": -0.06823551582845107,
+    "t_statistic": -11.193937312509036,
+    "p_value": 1.4482253526498974e-26,
+    "cohens_d": -0.9064585477176406,
+    "relative_lift": -0.2903151598803772
+  },
+  "aa_test": {
+    "n_control": 305.0,
+    "n_treatment": 305.0,
+    "ctr_control": 0.28504918032786886,
+    "ctr_treatment": 0.2743606557377049,
+    "difference": -0.01068852459016395,
+    "std_error": 0.007796293303956657,
+    "ci95_low": -0.02599950414375171,
+    "ci95_high": 0.004622454963423809,
+    "t_statistic": -1.3709751767214136,
+    "p_value": 0.17088930419719942,
+    "cohens_d": -0.1110183247371857,
+    "relative_lift": -0.037497124453646245
+  },
+  "repeats": 500,
+  "power_ab": 1.0,
+  "false_positive_aa": 0.046,
+  "behaviour": {
+    "A": {
+      "mean_log_popularity": 2.516544485286139,
+      "distinct_items": 671,
+      "catalog_coverage": 0.06900452488687783,
+      "mean_true_rating": 4.249077410681264,
+      "ctr": 0.2794426229508197
+    },
+    "B": {
+      "mean_log_popularity": 3.9020695089286863,
+      "distinct_items": 1404,
+      "catalog_coverage": 0.1443850267379679,
+      "mean_true_rating": 3.8553386038074815,
+      "ctr": 0.20554098360655737
+    }
+  },
+  "mean_top10_overlap_a_b": 0.1175,
+  "example_recs": {
+    "A": [
+      "Shawshank Redemption, The (1994)",
+      "Three Billboards Outside Ebbing, Missouri (2017)",
+      "Villain (1971)",
+      "Reign Over Me (2007)",
+      "Submarine (2010)"
+    ],
+    "B": [
+      "My Cousin Vinny (1992)",
+      "Big Fish (2003)",
+      "2001: A Space Odyssey (1968)",
+      "Holiday Inn (1942)",
+      "Breakfast at Tiffany's (1961)"
+    ]
+  },
+  "example_user": 1
+}

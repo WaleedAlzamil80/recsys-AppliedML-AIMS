@@ -1,5 +1,6 @@
 numpy
 pandas
-scipy
+scipy>=1.11
 matplotlib
 seaborn
+numba>=0.68.0
