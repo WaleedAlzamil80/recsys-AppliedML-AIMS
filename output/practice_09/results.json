@@ -1,0 +1,500 @@
+{
+  "dataset": "ml-latest-small",
+  "config": {
+    "latent_dim": 32,
+    "lamb": 0.09,
+    "gamma": 0.1,
+    "tau": 0.9
+  },
+  "min_count": 50,
+  "min_ratings": 50,
+  "profiles": {
+    "lord_of_the_rings": {
+      "liked": [
+        "Lord of the Rings: The Fellowship of the Ring, The (2001)",
+        "Lord of the Rings: The Two Towers, The (2002)",
+        "Lord of the Rings: The Return of the King, The (2003)"
+      ],
+      "user_bias": 2.521317091397367,
+      "unfiltered": [
+        {
+          "title": "Three Billboards Outside Ebbing, Missouri (2017)",
+          "score": 1.4826934588094218,
+          "n_ratings": 8
+        },
+        {
+          "title": "Shawshank Redemption, The (1994)",
+          "score": 1.3761542365925878,
+          "n_ratings": 317
+        },
+        {
+          "title": "Villain (1971)",
+          "score": 1.3244695432982372,
+          "n_ratings": 1
+        },
+        {
+          "title": "Star Wars: Episode IV - A New Hope (1977)",
+          "score": 1.2779659165591513,
+          "n_ratings": 251
+        },
+        {
+          "title": "Bad Boy Bubby (1993)",
+          "score": 1.2641583371607241,
+          "n_ratings": 3
+        },
+        {
+          "title": "Bossa Nova (2000)",
+          "score": 1.262720821450739,
+          "n_ratings": 1
+        },
+        {
+          "title": "Black Mirror: White Christmas (2014)",
+          "score": 1.2625441096301304,
+          "n_ratings": 4
+        },
+        {
+          "title": "Galaxy of Terror (Quest) (1981)",
+          "score": 1.2496133173615722,
+          "n_ratings": 1
+        },
+        {
+          "title": "Alien Contamination (1980)",
+          "score": 1.2496133173615722,
+          "n_ratings": 1
+        },
+        {
+          "title": "Streetcar Named Desire, A (1951)",
+          "score": 1.2430308723170334,
+          "n_ratings": 20
+        }
+      ],
+      "min50": [
+        {
+          "title": "Shawshank Redemption, The (1994)",
+          "score": 1.3761542365925878,
+          "n_ratings": 317
+        },
+        {
+          "title": "Star Wars: Episode IV - A New Hope (1977)",
+          "score": 1.2779659165591513,
+          "n_ratings": 251
+        },
+        {
+          "title": "Star Wars: Episode V - The Empire Strikes Back (1980)",
+          "score": 1.2249865059107634,
+          "n_ratings": 211
+        },
+        {
+          "title": "Godfather, The (1972)",
+          "score": 1.213586732495914,
+          "n_ratings": 192
+        },
+        {
+          "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)",
+          "score": 1.208582676681745,
+          "n_ratings": 97
+        },
+        {
+          "title": "Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)",
+          "score": 1.1784221736796976,
+          "n_ratings": 200
+        },
+        {
+          "title": "Matrix, The (1999)",
+          "score": 1.1735857501781453,
+          "n_ratings": 278
+        },
+        {
+          "title": "Dark Knight, The (2008)",
+          "score": 1.1534350431596192,
+          "n_ratings": 149
+        },
+        {
+          "title": "Usual Suspects, The (1995)",
+          "score": 1.130112140468164,
+          "n_ratings": 204
+        },
+        {
+          "title": "Snatch (2000)",
+          "score": 1.1286384160028156,
+          "n_ratings": 93
+        }
+      ]
+    },
+    "animation": {
+      "liked": [
+        "Toy Story (1995)",
+        "Finding Nemo (2003)",
+        "Shrek (2001)",
+        "Lion King, The (1994)"
+      ],
+      "user_bias": 3.080952307403685,
+      "unfiltered": [
+        {
+          "title": "Three Billboards Outside Ebbing, Missouri (2017)",
+          "score": 1.4862627397163783,
+          "n_ratings": 8
+        },
+        {
+          "title": "Shawshank Redemption, The (1994)",
+          "score": 1.391903030622966,
+          "n_ratings": 317
+        },
+        {
+          "title": "Villain (1971)",
+          "score": 1.3364998155729841,
+          "n_ratings": 1
+        },
+        {
+          "title": "Bossa Nova (2000)",
+          "score": 1.269523761530997,
+          "n_ratings": 1
+        },
+        {
+          "title": "Black Mirror: White Christmas (2014)",
+          "score": 1.2613620949364375,
+          "n_ratings": 4
+        },
+        {
+          "title": "Bad Boy Bubby (1993)",
+          "score": 1.240109349590376,
+          "n_ratings": 3
+        },
+        {
+          "title": "Guess Who's Coming to Dinner (1967)",
+          "score": 1.2256520595853884,
+          "n_ratings": 11
+        },
+        {
+          "title": "Streetcar Named Desire, A (1951)",
+          "score": 1.2254504343941206,
+          "n_ratings": 20
+        },
+        {
+          "title": "Galaxy of Terror (Quest) (1981)",
+          "score": 1.2179834506621576,
+          "n_ratings": 1
+        },
+        {
+          "title": "Alien Contamination (1980)",
+          "score": 1.2179834506621576,
+          "n_ratings": 1
+        }
+      ],
+      "min50": [
+        {
+          "title": "Shawshank Redemption, The (1994)",
+          "score": 1.391903030622966,
+          "n_ratings": 317
+        },
+        {
+          "title": "Forrest Gump (1994)",
+          "score": 1.2175621353610313,
+          "n_ratings": 329
+        },
+        {
+          "title": "Schindler's List (1993)",
+          "score": 1.1931881131675848,
+          "n_ratings": 220
+        },
+        {
+          "title": "Matrix, The (1999)",
+          "score": 1.1778728759114134,
+          "n_ratings": 278
+        },
+        {
+          "title": "Princess Bride, The (1987)",
+          "score": 1.141034710271303,
+          "n_ratings": 142
+        },
+        {
+          "title": "Dark Knight, The (2008)",
+          "score": 1.1358542789413915,
+          "n_ratings": 149
+        },
+        {
+          "title": "Snatch (2000)",
+          "score": 1.1326412406629662,
+          "n_ratings": 93
+        },
+        {
+          "title": "Cool Hand Luke (1967)",
+          "score": 1.1193595347222347,
+          "n_ratings": 57
+        },
+        {
+          "title": "Star Wars: Episode IV - A New Hope (1977)",
+          "score": 1.1069560351858871,
+          "n_ratings": 251
+        },
+        {
+          "title": "Usual Suspects, The (1995)",
+          "score": 1.1064791359226056,
+          "n_ratings": 204
+        }
+      ]
+    },
+    "sci_fi": {
+      "liked": [
+        "Matrix, The (1999)",
+        "Blade Runner (1982)",
+        "Star Wars: Episode IV - A New Hope (1977)",
+        "Alien (1979)"
+      ],
+      "user_bias": 2.9366907268528073,
+      "unfiltered": [
+        {
+          "title": "Three Billboards Outside Ebbing, Missouri (2017)",
+          "score": 1.4871328853703045,
+          "n_ratings": 8
+        },
+        {
+          "title": "Shawshank Redemption, The (1994)",
+          "score": 1.3563408508860921,
+          "n_ratings": 317
+        },
+        {
+          "title": "Villain (1971)",
+          "score": 1.3257922279677867,
+          "n_ratings": 1
+        },
+        {
+          "title": "Bossa Nova (2000)",
+          "score": 1.26622308132508,
+          "n_ratings": 1
+        },
+        {
+          "title": "Black Mirror: White Christmas (2014)",
+          "score": 1.2652655610936872,
+          "n_ratings": 4
+        },
+        {
+          "title": "Bad Boy Bubby (1993)",
+          "score": 1.2593561369060602,
+          "n_ratings": 3
+        },
+        {
+          "title": "Alien Contamination (1980)",
+          "score": 1.2359453022284788,
+          "n_ratings": 1
+        },
+        {
+          "title": "Galaxy of Terror (Quest) (1981)",
+          "score": 1.2359453022284788,
+          "n_ratings": 1
+        },
+        {
+          "title": "Hoop Dreams (1994)",
+          "score": 1.227075214203466,
+          "n_ratings": 29
+        },
+        {
+          "title": "Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)",
+          "score": 1.2262140168369045,
+          "n_ratings": 200
+        }
+      ],
+      "min50": [
+        {
+          "title": "Shawshank Redemption, The (1994)",
+          "score": 1.3563408508860921,
+          "n_ratings": 317
+        },
+        {
+          "title": "Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)",
+          "score": 1.2262140168369045,
+          "n_ratings": 200
+        },
+        {
+          "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)",
+          "score": 1.2186167579369553,
+          "n_ratings": 97
+        },
+        {
+          "title": "Star Wars: Episode V - The Empire Strikes Back (1980)",
+          "score": 1.2065705825018336,
+          "n_ratings": 211
+        },
+        {
+          "title": "Usual Suspects, The (1995)",
+          "score": 1.2013623655068728,
+          "n_ratings": 204
+        },
+        {
+          "title": "Godfather, The (1972)",
+          "score": 1.2004780669411257,
+          "n_ratings": 192
+        },
+        {
+          "title": "Goodfellas (1990)",
+          "score": 1.1675194537971305,
+          "n_ratings": 126
+        },
+        {
+          "title": "Pulp Fiction (1994)",
+          "score": 1.1418377098829111,
+          "n_ratings": 307
+        },
+        {
+          "title": "Fight Club (1999)",
+          "score": 1.139352107743178,
+          "n_ratings": 218
+        },
+        {
+          "title": "Lord of the Rings: The Return of the King, The (2003)",
+          "score": 1.1332343748013385,
+          "n_ratings": 185
+        }
+      ]
+    }
+  },
+  "polarization": {
+    "most": [
+      {
+        "title": "Pulp Fiction (1994)",
+        "norm": 1.9583440265544014,
+        "count": 307,
+        "mean": 4.197068403908795,
+        "std": 0.9504453980131049
+      },
+      {
+        "title": "Schindler's List (1993)",
+        "norm": 1.762568658043252,
+        "count": 220,
+        "mean": 4.225,
+        "std": 0.9737754547962486
+      },
+      {
+        "title": "Matrix, The (1999)",
+        "norm": 1.749751586385982,
+        "count": 278,
+        "mean": 4.192446043165468,
+        "std": 0.9734869031917069
+      },
+      {
+        "title": "Ace Ventura: Pet Detective (1994)",
+        "norm": 1.6753527458641193,
+        "count": 161,
+        "mean": 3.040372670807453,
+        "std": 1.0675553359325036
+      },
+      {
+        "title": "Braveheart (1995)",
+        "norm": 1.6220527982342856,
+        "count": 237,
+        "mean": 4.031645569620253,
+        "std": 0.9656825884942108
+      },
+      {
+        "title": "American Beauty (1999)",
+        "norm": 1.5911859439861213,
+        "count": 204,
+        "mean": 4.056372549019608,
+        "std": 0.9678704025380602
+      },
+      {
+        "title": "Star Wars: Episode IV - A New Hope (1977)",
+        "norm": 1.5897472699325619,
+        "count": 251,
+        "mean": 4.231075697211155,
+        "std": 0.8702648989071857
+      },
+      {
+        "title": "Lord of the Rings: The Fellowship of the Ring, The (2001)",
+        "norm": 1.5895978737692158,
+        "count": 198,
+        "mean": 4.106060606060606,
+        "std": 0.9327723619164451
+      },
+      {
+        "title": "Forrest Gump (1994)",
+        "norm": 1.5551586631505905,
+        "count": 329,
+        "mean": 4.164133738601824,
+        "std": 0.829979269004476
+      },
+      {
+        "title": "Austin Powers: The Spy Who Shagged Me (1999)",
+        "norm": 1.5320239112132112,
+        "count": 121,
+        "mean": 3.1983471074380163,
+        "std": 1.2102853615474047
+      }
+    ],
+    "least": [
+      {
+        "title": "Last Samurai, The (2003)",
+        "norm": 0.45742520431450656,
+        "count": 62,
+        "mean": 3.903225806451613,
+        "std": 0.5877699083318891
+      },
+      {
+        "title": "Super Size Me (2004)",
+        "norm": 0.4798793151450024,
+        "count": 50,
+        "mean": 3.51,
+        "std": 0.9353608929178095
+      },
+      {
+        "title": "King's Speech, The (2010)",
+        "norm": 0.4859173306125403,
+        "count": 58,
+        "mean": 4.043103448275862,
+        "std": 0.6583972359699997
+      },
+      {
+        "title": "Disclosure (1994)",
+        "norm": 0.5020023556775276,
+        "count": 52,
+        "mean": 3.5384615384615383,
+        "std": 0.7773608819772212
+      },
+      {
+        "title": "In the Line of Fire (1993)",
+        "norm": 0.5067175263401755,
+        "count": 70,
+        "mean": 3.692857142857143,
+        "std": 0.6829184072935842
+      },
+      {
+        "title": "Italian Job, The (2003)",
+        "norm": 0.5105191248004406,
+        "count": 59,
+        "mean": 3.6186440677966103,
+        "std": 0.7150855291433549
+      },
+      {
+        "title": "Donnie Brasco (1997)",
+        "norm": 0.5105768673314744,
+        "count": 52,
+        "mean": 3.7403846153846154,
+        "std": 0.7171684748382167
+      },
+      {
+        "title": "The Imitation Game (2014)",
+        "norm": 0.5146426723874125,
+        "count": 50,
+        "mean": 4.02,
+        "std": 0.7208328516376068
+      },
+      {
+        "title": "28 Days Later (2002)",
+        "norm": 0.5317357276087687,
+        "count": 58,
+        "mean": 3.9741379310344827,
+        "std": 0.7736078363249089
+      },
+      {
+        "title": "Romancing the Stone (1984)",
+        "norm": 0.5430520935982506,
+        "count": 54,
+        "mean": 3.4537037037037037,
+        "std": 0.6889909323068761
+      }
+    ],
+    "spearman_norm_vs_std": 0.5038742907372383,
+    "spearman_p_value": 2.392637883448139e-30,
+    "eligible_movies": 450
+  }
+}

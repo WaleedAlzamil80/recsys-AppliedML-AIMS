@@ -1,0 +1,216 @@
+{
+  "dataset": "ml-latest-small",
+  "hyperparameters": {
+    "lamb": 0.09,
+    "gamma": 0.1,
+    "tau": 0.9,
+    "tau_feat": 0.9,
+    "epochs": 40,
+    "seed": 42
+  },
+  "k2": {
+    "plain": {
+      "train_rmse": 0.7315160687249482,
+      "val_rmse": 0.8654424560571559,
+      "test_rmse": 0.858872292989522,
+      "objective_first": 2853.970787551437,
+      "objective_last": 2570.043036357474,
+      "objective_monotone": true
+    },
+    "genre": {
+      "train_rmse": 0.7293168973610016,
+      "val_rmse": 0.8557305701092858,
+      "test_rmse": 0.8494941591240787,
+      "objective_first": 2853.8750074492827,
+      "objective_last": 2534.020447247854,
+      "objective_monotone": true
+    }
+  },
+  "cold_start_dim": 10,
+  "cold_start_full_model": {
+    "plain": {
+      "test_rmse": 0.8644727221247147,
+      "objective_monotone": true
+    },
+    "genre": {
+      "test_rmse": 0.84543377341961,
+      "objective_monotone": true
+    }
+  },
+  "cold_start_buckets": [
+    {
+      "bin": "1-2",
+      "n_test": 637,
+      "rmse_plain": 0.992950085325437,
+      "rmse_genre": 0.9519819692378482
+    },
+    {
+      "bin": "3-5",
+      "n_test": 704,
+      "rmse_plain": 0.8947771449080018,
+      "rmse_genre": 0.8665428057994243
+    },
+    {
+      "bin": "6-10",
+      "n_test": 962,
+      "rmse_plain": 0.8574046734308598,
+      "rmse_genre": 0.8514295119505282
+    },
+    {
+      "bin": "11-25",
+      "n_test": 1938,
+      "rmse_plain": 0.8334608368944135,
+      "rmse_genre": 0.8167302487229685
+    },
+    {
+      "bin": ">=26",
+      "n_test": 5518,
+      "rmse_plain": 0.8564918499282665,
+      "rmse_genre": 0.8384642072381707
+    }
+  ],
+  "genre_vectors": {
+    "Action": {
+      "x": 0.3712373578234282,
+      "y": -0.2762508329174891,
+      "norm": 0.4627436639558953
+    },
+    "Adventure": {
+      "x": 0.17389748542147318,
+      "y": -0.10858222538309409,
+      "norm": 0.2050132559252121
+    },
+    "Animation": {
+      "x": 0.1411264991068306,
+      "y": 0.23997320811842587,
+      "norm": 0.27839509579875793
+    },
+    "Children": {
+      "x": -0.07631773849120993,
+      "y": -0.3604438911744997,
+      "norm": 0.3684347919149701
+    },
+    "Comedy": {
+      "x": -0.017140670701958325,
+      "y": -0.11811149035666638,
+      "norm": 0.11934876097549513
+    },
+    "Crime": {
+      "x": 0.002098663406901167,
+      "y": 0.06869170392020242,
+      "norm": 0.06872375554025129
+    },
+    "Documentary": {
+      "x": -0.29864921564228875,
+      "y": 0.2648900037310863,
+      "norm": 0.3991967786448297
+    },
+    "Drama": {
+      "x": -0.21696652648753323,
+      "y": 0.19430206377556816,
+      "norm": 0.29125206540642834
+    },
+    "Fantasy": {
+      "x": -0.07028538936435078,
+      "y": 0.08681753285243986,
+      "norm": 0.11170192464180224
+    },
+    "Film-Noir": {
+      "x": -0.41804883220691824,
+      "y": 0.6457919882860603,
+      "norm": 0.7692932589357787
+    },
+    "Horror": {
+      "x": 0.32228667692310664,
+      "y": -0.007469535900309456,
+      "norm": 0.3223732248321888
+    },
+    "IMAX": {
+      "x": 0.43308580275461867,
+      "y": -0.39812574960602,
+      "norm": 0.5882749570115727
+    },
+    "Musical": {
+      "x": -0.37582496916764396,
+      "y": 0.0857880989761903,
+      "norm": 0.3854919005320464
+    },
+    "Mystery": {
+      "x": -0.012240550610717361,
+      "y": 0.15205259275124014,
+      "norm": 0.1525444920068503
+    },
+    "Romance": {
+      "x": -0.09648273486730917,
+      "y": -0.1265960916011955,
+      "norm": 0.15917125537035184
+    },
+    "Sci-Fi": {
+      "x": 0.19446550240033078,
+      "y": -0.010064039389238224,
+      "norm": 0.1947257469176616
+    },
+    "Thriller": {
+      "x": 0.19319050262401657,
+      "y": -0.14515896644140874,
+      "norm": 0.24164787572510996
+    },
+    "War": {
+      "x": 0.0008606402075578036,
+      "y": 0.17048628178886419,
+      "norm": 0.17048845409516408
+    },
+    "Western": {
+      "x": -0.060737203292666415,
+      "y": 0.06579417929874312,
+      "norm": 0.08954262612526978
+    }
+  },
+  "neighbours": {
+    "Toy Story": {
+      "similar": [
+        "Dave",
+        "Clueless",
+        "Pocahontas"
+      ],
+      "opposite": [
+        "Braveheart",
+        "Heat",
+        "Sin City"
+      ]
+    },
+    "Pulp Fiction": {
+      "similar": [
+        "Ghostbusters (a.k.a. Ghost Busters)",
+        "Dr. Strangelove or: How I Learned to St.",
+        "Godfather, The"
+      ],
+      "opposite": [
+        "Titanic",
+        "Harry Potter and the Order of the Phoen.",
+        "Cast Away"
+      ]
+    },
+    "Lord of the Rings: The Fellowship of th.": {
+      "similar": [
+        "Royal Tenenbaums, The",
+        "Jaws",
+        "Iron Man"
+      ],
+      "opposite": [
+        "Apollo 13",
+        "Miss Congeniality",
+        "Broken Arrow"
+      ]
+    }
+  },
+  "embedding_groups": [
+    "Comedy",
+    "Drama",
+    "Action",
+    "Adventure",
+    "Thriller",
+    "Sci-Fi",
+    "Romance"
+  ]
+}
