@@ -37,20 +37,22 @@ def plot_loglog_degrees(
     movie_degrees: np.ndarray,
     output_dir: str | Path | None = None,
 ):
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    fig, axes = plt.subplots(1, 2, figsize=(9, 4.2))
 
     for ax, values, title in [
         (axes[0], user_degrees, "User degree distribution"),
         (axes[1], movie_degrees, "Movie degree distribution"),
     ]:
-        unique_values, counts = np.unique(values, return_counts=True)
-        # scatter plot
-        log_unique_values = np.log10(unique_values)
-        log_counts = np.log10(counts)
-        ax.scatter(log_unique_values, log_counts)
+        # logarithmic bins: raw counts are too sparse in the tail to read
+        bins = np.unique(np.round(np.logspace(
+            np.log10(values.min()), np.log10(values.max() + 1), 25)))
+        density, edges = np.histogram(values, bins=bins, density=True)
+        centres = np.sqrt(edges[:-1] * edges[1:])
+        keep = density > 0
+        ax.loglog(centres[keep], density[keep], "o", ms=4)
         ax.set_title(title)
-        ax.set_xlabel("Log10 Degree k")
-        ax.set_ylabel("Log10 Count P(k)")
+        ax.set_xlabel("Degree k")
+        ax.set_ylabel("P(k) (log-binned)")
 
     _save_plot(fig, "degree_distribution.png", output_dir=output_dir)
 
@@ -113,14 +115,19 @@ def plot_lines(
 ) -> None:
     """Plot several named curves against a shared x axis."""
     fig, ax = plt.subplots(figsize=figsize)
-    for name, values in series.items():
+    styles = ["-", "--", ":"]
+    for i, (name, values) in enumerate(series.items()):
         ax.plot(x, values, marker="o" if markers else None, ms=3.5,
-                label=name)
+                ls=styles[i % len(styles)], lw=2.2 - 0.5 * i, label=name)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_title(title)
     if logx:
         ax.set_xscale("log")
+        if len(x) <= 10:
+            ax.set_xticks(list(x))
+            ax.set_xticklabels([f"{v:g}" for v in x])
+            ax.minorticks_off()
     if logy:
         ax.set_yscale("log")
     if len(series) > 1:
@@ -178,7 +185,7 @@ def plot_embedding_2d(
     if other.any():
         ax.scatter(coords[other, 0], coords[other, 1], s=6, alpha=0.25,
                    color="gray", label="other")
-    for row, label in annotations:
+    for row, label in list(annotations)[:12]:
         ax.annotate(label, coords[row], fontsize=6.5, alpha=0.9,
                     xytext=(3, 3), textcoords="offset points")
     ax.axhline(0, color="k", lw=0.4)
@@ -257,14 +264,22 @@ def plot_histogram(
     vline: float | None = None,
     vline_label: str = "",
     figsize: tuple[float, float] = COLUMN_SIZE,
+    log10: bool = False,
 ) -> None:
-    """Histogram with an optional labelled vertical line."""
+    """Histogram with an optional labelled vertical line.
+
+    With ``log10=True`` the values (e.g. p-values that are all tiny) and the
+    vertical line are shown on a log10 scale.
+    """
     fig, ax = plt.subplots(figsize=figsize)
+    if log10:
+        values = np.log10(np.clip(np.asarray(values, dtype=float), 1e-300, None))
+        vline = None if vline is None else float(np.log10(vline))
     ax.hist(values, bins=bins, edgecolor="white")
     if vline is not None:
         ax.axvline(vline, color="crimson", lw=1.5, label=vline_label)
         ax.legend(fontsize=8)
-    ax.set_xlabel(xlabel)
+    ax.set_xlabel(f"log10 of {xlabel}" if log10 else xlabel)
     ax.set_ylabel("count")
     _save_plot(fig, filename, output_dir=Path(output_dir))
 

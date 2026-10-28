@@ -1,0 +1,16 @@
+{
+  "dataset": "ml-32m",
+  "n_ratings": 32000204,
+  "n_train": 25606057,
+  "n_test": 6394147,
+  "epochs": 30,
+  "threads": 8,
+  "latent_dim": 10,
+  "lamb": 0.09,
+  "gamma": 0.1,
+  "tau": 0.9,
+  "final_objective": 699786.3576649196,
+  "train_rmse": 0.7133197199540412,
+  "test_rmse": 0.7776581363091818,
+  "objective_non_increasing": true
+}

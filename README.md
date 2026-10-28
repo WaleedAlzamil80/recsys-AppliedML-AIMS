@@ -58,8 +58,8 @@ alternating updates.
 
 Adding user and item latent vectors improves the rating model when factor
 regularization is tuned. With `lambda=0.09`, increasing `tau` from `0.1` to
-`0.9` reduced test RMSE from **1.2826** to **0.8549**; the latter run's training
-RMSE was **0.6316**. This illustrates the sensitivity of the model to
+`0.9` reduced test RMSE from **1.0277** to **0.8549** (training RMSE **0.4546** and
+**0.6316**; results in [`output/practice_03/results.json`](output/practice_03/results.json)). This illustrates the sensitivity of the model to
 regularization, rather than a comparison across different data splits.
 
 ### Practical 4: ALS on MovieLens 32M
@@ -67,8 +67,8 @@ regularization, rather than a comparison across different data splits.
 The large run uses two compressed sparse row layouts, one ordered by user and
 one by item. Numba compiles the update kernels and parallelizes independent row
 updates. After 30 epochs, training RMSE was **0.7133** and test RMSE **0.7777**;
-the training objective was monotone. The split and timing details are stored
-with the experiment outputs.
+the training objective was monotone. The split and final metrics are stored in
+[`output/practice_04/results.json`](output/practice_04/results.json).
 
 ![32M ALS objective](output/practice_04/plots/ALS_Regularized_Negative_Log_Likelihood_objective_0.png)
 
@@ -189,11 +189,11 @@ calibration on other data. Full bucketed metrics and posterior summaries:
 
 ### Parallel scaling benchmark
 
-On MovieLens 32M, measured time per epoch fell from **2.92 s** at one thread to
-**1.44 s** at eight threads, a **2.03x** speed-up. Efficiency at eight threads
-was **25.4%**. The small-dataset comparison measured **0.172 s/epoch** for the
-NumPy ALS implementation and **0.0113 s/epoch** for Numba at eight threads
-(**15.1x** in this short benchmark). Timings are machine- and run-dependent;
+On MovieLens 32M, measured time per epoch fell from **2.69 s** at one thread to
+**1.27 s** at eight threads, a **2.11x** speed-up. Efficiency at eight threads
+was **26.4%**. The small-dataset comparison measured **0.166 s/epoch** for the
+NumPy ALS implementation and **0.0108 s/epoch** for Numba at eight threads
+(**15.4x** in this short benchmark). Timings are machine- and run-dependent;
 the 32M measurement used two timed epochs after Numba warm-up.
 Full timing and efficiency measurements:
 [`output/benchmark/results.json`](output/benchmark/results.json).

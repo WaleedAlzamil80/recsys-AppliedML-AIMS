@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import numpy as np
@@ -111,6 +112,11 @@ def main():
     plot_objective(iterations, negative_log_likelihood_test, title="ALS Regularized Negative Log Likelihood (Test)", output_dir=output_dir / "plots", offset=1)
     print(f"Final training RMSE: {train_rmse[-1]:.4f}")
     print(f"Final test RMSE: {test_rmse[-1]:.4f}")
+
+    with open(output_dir / "results.json", "w") as handle:
+        json.dump({"epochs": epochs, "lamb": lamb, "gamma": gamma,
+                   "train_rmse": float(train_rmse[-1]),
+                   "test_rmse": float(test_rmse[-1])}, handle, indent=2)
 
     # save the npy arrays to the output directory
     (output_dir / "npy_arrays").mkdir(parents=True, exist_ok=True)

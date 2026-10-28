@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import numpy as np
@@ -219,6 +220,24 @@ def main() -> None:
     print(f"Final training RMSE: {train_rmse[-1]:.4f}")
     print(f"Final test RMSE: {test_rmse[-1]:.4f}")
     print(f"Training objective non-increasing: {np.all(np.diff(losses) <= 1e-8)}")
+
+    # same model with weak regularisation, to show that tau must be tuned
+    low_tau = 0.1
+    *_, train_rmse_low, test_rmse_low = fit_als(
+        data_by_user_train, data_by_movie_train, data_by_user_test,
+        user_id_to_index, item_id_to_index, epochs, latent_dim, lamb, gamma,
+        low_tau, random_state=42,
+    )
+    print(f"tau={low_tau}: train RMSE {train_rmse_low[-1]:.4f}, test RMSE {test_rmse_low[-1]:.4f}")
+    with open(output_dir / "results.json", "w") as handle:
+        json.dump({
+            "epochs": epochs, "latent_dim": latent_dim,
+            "lamb": lamb, "gamma": gamma,
+            "tau_runs": {
+                str(tau): {"train_rmse": float(train_rmse[-1]), "test_rmse": float(test_rmse[-1])},
+                str(low_tau): {"train_rmse": float(train_rmse_low[-1]), "test_rmse": float(test_rmse_low[-1])},
+            },
+        }, handle, indent=2)
 
     # save the npy arrays to the output directory
     (output_dir / "npy_arrays").mkdir(parents=True, exist_ok=True)

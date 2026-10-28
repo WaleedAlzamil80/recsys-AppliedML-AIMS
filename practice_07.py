@@ -131,7 +131,7 @@ def main() -> None:
     p_aa = rerandomise(ctr["A"], ctr["A2"], args.repeats, rng)
     plots = args.output_dir / "plots"
     plot_histogram(p_ab, "p-value (A vs B)", "pvalues_ab.png", plots,
-                   vline=0.05, vline_label="0.05")
+                   vline=0.05, vline_label="p = 0.05", log10=True)
     plot_histogram(p_aa, "p-value (A vs A)", "pvalues_aa.png", plots,
                    vline=0.05, vline_label="0.05")
     per_user = per_user_ctr(log)

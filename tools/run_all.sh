@@ -30,4 +30,4 @@ else
   echo "skipping 32M steps: $BIG/ratings.csv not found"
 fi
 "$PY" tools/make_report_assets.py
-echo "Done. Upload report/Applied_ML_Starting_Point_Project to Overleaf."
+echo "Done. Upload the whole report/ folder to Overleaf and compile main.tex."

@@ -288,6 +288,20 @@ def build(output: Path) -> tuple[dict[str, str], dict[str, str]]:
             "lcccc", ["train ratings", "test n", "MAP", "VB",
                       "mean pred.\\ std"], rows)
 
+    b2, b3 = load(output, "practice_02"), load(output, "practice_03")
+    if b2:
+        macros.update(biasTrain=f"{b2['train_rmse']:.4f}",
+                      biasTest=f"{b2['test_rmse']:.4f}")
+    if b3:
+        hi, lo = b3["tau_runs"]["0.9"], b3["tau_runs"]["0.1"]
+        macros.update(mfTrain=f"{hi['train_rmse']:.4f}",
+                      mfTest=f"{hi['test_rmse']:.4f}",
+                      mfTrainLowTau=f"{lo['train_rmse']:.4f}",
+                      mfTestLowTau=f"{lo['test_rmse']:.4f}")
+    big = load(output, "practice_04")
+    if big:
+        macros.update(bigTrain=f"{big['train_rmse']:.4f}",
+                      bigTest=f"{big['test_rmse']:.4f}")
     k = load(output, "benchmark")
     if k:
         threads = sorted(int(x) for x in k["seconds_per_epoch"])

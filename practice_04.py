@@ -1,4 +1,5 @@
 import argparse
+import json
 import os
 from pathlib import Path
 
@@ -75,6 +76,22 @@ def main() -> None:
     print(f"Final training RMSE: {result.train_rmse[-1]:.4f}")
     print(f"Final test RMSE: {result.test_rmse[-1]:.4f}")
     print(f"Training objective non-increasing: {np.all(np.diff(result.losses) <= 1e-8)}")
+
+    results = {
+        "dataset": args.data_dir.name,
+        "n_ratings": int(data.train_by_user.nnz + data.test_by_user.nnz),
+        "n_train": int(data.train_by_user.nnz),
+        "n_test": int(data.test_by_user.nnz),
+        "epochs": args.epochs,
+        "threads": args.threads,
+        "latent_dim": 10, "lamb": 0.09, "gamma": 0.1, "tau": 0.9,
+        "final_objective": float(result.losses[-1]),
+        "train_rmse": float(result.train_rmse[-1]),
+        "test_rmse": float(result.test_rmse[-1]),
+        "objective_non_increasing": bool(np.all(np.diff(result.losses) <= 1e-8)),
+    }
+    with open(output_dir / "results.json", "w") as handle:
+        json.dump(results, handle, indent=2)
 
     arrays_dir = output_dir / "npy_arrays"
     arrays_dir.mkdir(parents=True, exist_ok=True)
